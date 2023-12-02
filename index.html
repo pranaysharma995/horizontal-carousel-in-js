@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <title>Slider</title>
+        <style>
+            body
+            {
+                margin: 0px;
+                padding: 0px;
+            }
+            .container
+            {
+                width: 100%;
+                height: auto;
+            }
+            .horizontal-carousel
+            {
+                width: 100%;
+                overflow: hidden;
+                padding-bottom: 50px;
+                position: relative;
+            }
+            .bullet-container
+            {
+                position: absolute;
+                bottom: 25px;
+                left: 50%;
+                transform: translate(-50%);
+                display: flex;
+                gap: 10px;
+            }
+            .bullet-container .bullet{
+                width: 10px;
+                height: 10px;
+                border-radius: 50px;
+                background-color: red;
+                cursor: pointer;
+            }
+            .bullet-container .bullet.active
+            {
+                background-color: blue;
+            }
+            .horizontal-carousel-container
+            {
+                display: flex;
+                flex-wrap: nowrap;
+            }
+            .horizontal-carousel-container > div
+            {
+                flex: 0 0 80%;
+            }
+            .carousel-card img
+            {
+                width: 100%;
+                height: 80vh;
+                object-fit: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="horizontal-carousel">
+                <div class="horizontal-carousel-container">
+                    <div class="carousel-card" title="one">
+                        <img src="./one.jpg" alt="image" />
+                    </div>
+                    <div class="carousel-card" title="two">
+                        <img src="./two.jpg" alt="image" />
+                    </div>
+                    <div class="carousel-card" title="three">
+                        <img src="./three.jpg" alt="image" />
+                    </div>
+                    <div class="carousel-card" title="four">
+                        <img src="./four.jpg" alt="image" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+        </script>
+        <script src="./script.js"></script>
+        <script>
+            window.onload=function()
+            {
+                console.log("Script ready");
+                let container=document.querySelector(".horizontal-carousel-container");
+                let slides=container.querySelectorAll(".carousel-card");
+
+                let carousel=new HorizontalCarousel(container,slides);
+                console.log(carousel);
+                carousel.default();
+            }
+        </script>
+    </body>
+</html>
